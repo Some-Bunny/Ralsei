@@ -1,0 +1,946 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1868812234232686}
+  m_IsPrefabParent: 1
+--- !u!1 &1868812234232686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4175538136124494}
+  - component: {fileID: 114500654341639124}
+  m_Layer: 0
+  m_Name: ProjectileCollection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4175538136124494
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868812234232686}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114500654341639124
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1868812234232686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b03b1445062e71c4ca60f92cbd330aff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteIDsWithAttachPoints: 
+  SpriteDefinedAttachPoints: []
+  version: 3
+  materialIdsValid: 1
+  needMaterialInstance: 0
+  spriteDefinitions:
+  - name: ralsei_slashproj_001
+    boundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    boundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    boundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    untrimmedBoundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.4375, y: -1.4375, z: 0}
+    - {x: 0.5, y: -1.4375, z: 0}
+    - {x: -0.4375, y: 1.4375, z: 0}
+    - {x: 0.5, y: 1.4375, z: 0}
+    position0: {x: -0.4375, y: -1.4375, z: 0}
+    position1: {x: 0.5, y: -1.4375, z: 0}
+    position2: {x: -0.4375, y: 1.4375, z: 0}
+    position3: {x: 0.5, y: 1.4375, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.015632812, y: 0.015632812}
+    - {x: 0.13280469, y: 0.015632812}
+    - {x: 0.015632812, y: 0.3749922}
+    - {x: 0.13280469, y: 0.3749922}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0.99999994, y: 0}
+    - {x: 0, y: 1}
+    - {x: 0.99999994, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: 61eed085c241a174db79bdda1c872095
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_slashproj_005
+    boundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    boundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    boundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    untrimmedBoundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.4375, y: -1.4375, z: 0}
+    - {x: 0.5, y: -1.4375, z: 0}
+    - {x: -0.4375, y: 1.4375, z: 0}
+    - {x: 0.5, y: 1.4375, z: 0}
+    position0: {x: -0.4375, y: -1.4375, z: 0}
+    position1: {x: 0.5, y: -1.4375, z: 0}
+    position2: {x: -0.4375, y: 1.4375, z: 0}
+    position3: {x: 0.5, y: 1.4375, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.015632812, y: 0.4062578}
+    - {x: 0.13280469, y: 0.4062578}
+    - {x: 0.015632812, y: 0.7656172}
+    - {x: 0.13280469, y: 0.7656172}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0.99999994, y: 0}
+    - {x: 0, y: 1}
+    - {x: 0.99999994, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2de9d584df5518d4eb872e44cc8e9a1f
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_slashproj_006
+    boundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    boundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    boundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    untrimmedBoundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.4375, y: -1.4375, z: 0}
+    - {x: 0.5, y: -1.4375, z: 0}
+    - {x: -0.4375, y: 1.4375, z: 0}
+    - {x: 0.5, y: 1.4375, z: 0}
+    position0: {x: -0.4375, y: -1.4375, z: 0}
+    position1: {x: 0.5, y: -1.4375, z: 0}
+    position2: {x: -0.4375, y: 1.4375, z: 0}
+    position3: {x: 0.5, y: 1.4375, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.015632812, y: 0.7968828}
+    - {x: 0.015632812, y: 0.9140547}
+    - {x: 0.3749922, y: 0.7968828}
+    - {x: 0.3749922, y: 0.9140547}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: f4b42a543aba1134298e717be2e4dec1
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_whipproj_002
+    boundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    boundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    boundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    untrimmedBoundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.9375, y: -0.375, z: 0}
+    - {x: 0.9375, y: -0.375, z: 0}
+    - {x: -0.9375, y: 0.3125, z: 0}
+    - {x: 0.9375, y: 0.3125, z: 0}
+    position0: {x: -0.9375, y: -0.375, z: 0}
+    position1: {x: 0.9375, y: -0.375, z: 0}
+    position2: {x: -0.9375, y: 0.3125, z: 0}
+    position3: {x: 0.9375, y: 0.3125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.5312578, y: 0.16407031}
+    - {x: 0.7656172, y: 0.16407031}
+    - {x: 0.5312578, y: 0.24999219}
+    - {x: 0.7656172, y: 0.24999219}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: 2426895e35228e647899f566391686bb
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_slashproj_002
+    boundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    boundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    boundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    untrimmedBoundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.4375, y: -1.4375, z: 0}
+    - {x: 0.5, y: -1.4375, z: 0}
+    - {x: -0.4375, y: 1.4375, z: 0}
+    - {x: 0.5, y: 1.4375, z: 0}
+    position0: {x: -0.4375, y: -1.4375, z: 0}
+    position1: {x: 0.5, y: -1.4375, z: 0}
+    position2: {x: -0.4375, y: 1.4375, z: 0}
+    position3: {x: 0.5, y: 1.4375, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.4062578, y: 0.015632812}
+    - {x: 0.4062578, y: 0.13280469}
+    - {x: 0.7656172, y: 0.015632812}
+    - {x: 0.7656172, y: 0.13280469}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 0.99999994}
+    - {x: 1, y: 0}
+    - {x: 1, y: 0.99999994}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: b6add84417a4b4b4ca49201c36a0e236
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_microslashproj_001
+    boundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 1.5, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 1.5, z: 0}
+    boundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    boundsDataExtents: {x: 0.9375, y: 1.5, z: 0}
+    untrimmedBoundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    untrimmedBoundsDataExtents: {x: 0.9375, y: 1.5, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.4375, y: -0.75, z: 0}
+    - {x: 0.5, y: -0.75, z: 0}
+    - {x: -0.4375, y: 0.75, z: 0}
+    - {x: 0.5, y: 0.75, z: 0}
+    position0: {x: -0.4375, y: -0.75, z: 0}
+    position1: {x: 0.5, y: -0.75, z: 0}
+    position2: {x: -0.4375, y: 0.75, z: 0}
+    position3: {x: 0.5, y: 0.75, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.3125078, y: 0.16407031}
+    - {x: 0.3125078, y: 0.2812422}
+    - {x: 0.4999922, y: 0.16407031}
+    - {x: 0.4999922, y: 0.2812422}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: 6a1825c4296a9324ab63afc3751c1e33
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_whipproj_005
+    boundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    boundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    boundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    untrimmedBoundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.9375, y: -0.375, z: 0}
+    - {x: 0.9375, y: -0.375, z: 0}
+    - {x: -0.9375, y: 0.3125, z: 0}
+    - {x: 0.9375, y: 0.3125, z: 0}
+    position0: {x: -0.9375, y: -0.375, z: 0}
+    position1: {x: 0.9375, y: -0.375, z: 0}
+    position2: {x: -0.9375, y: 0.3125, z: 0}
+    position3: {x: 0.9375, y: 0.3125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.5312578, y: 0.2812578}
+    - {x: 0.7656172, y: 0.2812578}
+    - {x: 0.5312578, y: 0.3671797}
+    - {x: 0.7656172, y: 0.3671797}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: ad44440f12d4d3e46b3461a3e63a7353
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_whipproj_001
+    boundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    boundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    boundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    untrimmedBoundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.9375, y: -0.375, z: 0}
+    - {x: 0.9375, y: -0.375, z: 0}
+    - {x: -0.9375, y: 0.3125, z: 0}
+    - {x: 0.9375, y: 0.3125, z: 0}
+    position0: {x: -0.9375, y: -0.375, z: 0}
+    position1: {x: 0.9375, y: -0.375, z: 0}
+    position2: {x: -0.9375, y: 0.3125, z: 0}
+    position3: {x: 0.9375, y: 0.3125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.4062578, y: 0.3125078}
+    - {x: 0.4062578, y: 0.5468672}
+    - {x: 0.4921797, y: 0.3125078}
+    - {x: 0.4921797, y: 0.5468672}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: ee950fe62420c0547a6abf59ae83065e
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_slashproj_003
+    boundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    boundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    boundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    untrimmedBoundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.4375, y: -1.4375, z: 0}
+    - {x: 0.5, y: -1.4375, z: 0}
+    - {x: -0.4375, y: 1.4375, z: 0}
+    - {x: 0.5, y: 1.4375, z: 0}
+    position0: {x: -0.4375, y: -1.4375, z: 0}
+    position1: {x: 0.5, y: -1.4375, z: 0}
+    position2: {x: -0.4375, y: 1.4375, z: 0}
+    position3: {x: 0.5, y: 1.4375, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.16407031, y: 0.015632812}
+    - {x: 0.2812422, y: 0.015632812}
+    - {x: 0.16407031, y: 0.3749922}
+    - {x: 0.2812422, y: 0.3749922}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: 81f0ff3034c17734a9e806281fc85e83
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_whipproj_004
+    boundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    boundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    boundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    untrimmedBoundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.9375, y: -0.375, z: 0}
+    - {x: 0.9375, y: -0.375, z: 0}
+    - {x: -0.9375, y: 0.3125, z: 0}
+    - {x: 0.9375, y: 0.3125, z: 0}
+    position0: {x: -0.9375, y: -0.375, z: 0}
+    position1: {x: 0.9375, y: -0.375, z: 0}
+    position2: {x: -0.9375, y: 0.3125, z: 0}
+    position3: {x: 0.9375, y: 0.3125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.16407031, y: 0.4062578}
+    - {x: 0.16407031, y: 0.6406172}
+    - {x: 0.24999219, y: 0.4062578}
+    - {x: 0.24999219, y: 0.6406172}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: 86bbb30fdd6cf05449bc4a9d904608b4
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_whipproj_003
+    boundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0, y: -0.03125, z: 0}
+    - {x: 1.875, y: 0.6875, z: 0}
+    boundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    boundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0, y: -0.03125, z: 0}
+    untrimmedBoundsDataExtents: {x: 1.875, y: 0.6875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.9375, y: -0.375, z: 0}
+    - {x: 0.9375, y: -0.375, z: 0}
+    - {x: -0.9375, y: 0.3125, z: 0}
+    - {x: 0.9375, y: 0.3125, z: 0}
+    position0: {x: -0.9375, y: -0.375, z: 0}
+    position1: {x: 0.9375, y: -0.375, z: 0}
+    position2: {x: -0.9375, y: 0.3125, z: 0}
+    position3: {x: 0.9375, y: 0.3125, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.2812578, y: 0.4062578}
+    - {x: 0.2812578, y: 0.6406172}
+    - {x: 0.3671797, y: 0.4062578}
+    - {x: 0.3671797, y: 0.6406172}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 0}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: a4bc88642bc4b0c4fb6b091b6bd7eaf3
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 1
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  - name: ralsei_slashproj_004
+    boundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsData:
+    - {x: 0.03125, y: 0, z: 0}
+    - {x: 0.9375, y: 2.875, z: 0}
+    boundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    boundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    untrimmedBoundsDataCenter: {x: 0.03125, y: 0, z: 0}
+    untrimmedBoundsDataExtents: {x: 0.9375, y: 2.875, z: 0}
+    texelSize: {x: 0.0625, y: 0.0625}
+    positions:
+    - {x: -0.4375, y: -1.4375, z: 0}
+    - {x: 0.5, y: -1.4375, z: 0}
+    - {x: -0.4375, y: 1.4375, z: 0}
+    - {x: 0.5, y: 1.4375, z: 0}
+    position0: {x: -0.4375, y: -1.4375, z: 0}
+    position1: {x: 0.5, y: -1.4375, z: 0}
+    position2: {x: -0.4375, y: 1.4375, z: 0}
+    position3: {x: 0.5, y: 1.4375, z: 0}
+    normals: []
+    tangents: []
+    uvs:
+    - {x: 0.7968828, y: 0.015632812}
+    - {x: 0.9140547, y: 0.015632812}
+    - {x: 0.7968828, y: 0.3749922}
+    - {x: 0.9140547, y: 0.3749922}
+    normalizedUvs:
+    - {x: 0, y: 0}
+    - {x: 1, y: 0}
+    - {x: 0, y: 1}
+    - {x: 1, y: 1}
+    indices: 000000000300000001000000020000000300000000000000
+    material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+    materialId: 0
+    sourceTextureGUID: e309a7aa1356b91478bca80158b6b159
+    extractRegion: 0
+    regionX: 0
+    regionY: 0
+    regionW: 0
+    regionH: 0
+    flipped: 0
+    complexGeometry: 0
+    physicsEngine: 0
+    colliderType: 0
+    customColliders: []
+    metadata:
+      type: 0
+      weight: 0
+      dungeonRoomSubType: 0
+      secondRoomSubType: 0
+      thirdRoomSubType: 0
+      preventWallStamping: 0
+      usesAnimSequence: 0
+      usesNeighborDependencies: 0
+      usesPerTileVFX: 0
+      tileVFXPlaystyle: 0
+      tileVFXChance: 0
+      tileVFXPrefab: {fileID: 0}
+      tileVFXOffset: {x: 0, y: 0}
+      tileVFXDelayTime: 0
+      tileVFXDelayVariance: 0
+      tileVFXAnimFrame: 0
+    colliderVertices: []
+    colliderIndicesFwd: 
+    colliderIndicesBack: 
+    colliderConvex: 0
+    colliderSmoothSphereCollisions: 0
+    polygonCollider2D: []
+    edgeCollider2D: []
+    attachPoints: []
+  premultipliedAlpha: 1
+  material: {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+  materials:
+  - {fileID: 2100000, guid: 481bd77010b09f74696a3f2290e774c5, type: 2}
+  textures:
+  - {fileID: 2800000, guid: cfe251f21e3eec74e97a7a73051d34c5, type: 3}
+  pngTextures: []
+  materialPngTextureId: 00000000
+  textureFilterMode: 0
+  textureMipMaps: 0
+  allowMultipleAtlases: 0
+  spriteCollectionGUID: bc3eb1f016b06a34a8deff8787470517
+  spriteCollectionName: ProjectileCollection
+  assetName: 
+  loadable: 0
+  invOrthoSize: 2
+  halfTargetHeight: 8
+  buildKey: 2009184106
+  dataGuid: 2b782dc6f2b8e2d4388c31ef2254acc0
+  managedSpriteCollection: 0
+  hasPlatformData: 0
+  spriteCollectionPlatforms: []
+  spriteCollectionPlatformGUIDs: []

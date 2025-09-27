@@ -1,0 +1,44 @@
+ManifestFileVersion: 0
+CRC: 2766242761
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 1d33478223b02215e8272f8507ec1ce5
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 057cbf29e760512524dde96321837c55
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: ecaffc43a5d2b1d47858e3fb687e7271, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: b03b1445062e71c4ca60f92cbd330aff, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+Assets:
+- Assets/Sprites/Item/ItemCollection Data/ItemCollection.prefab
+- Assets/Sprites/RalseiSprites/RalseiAnimation.prefab
+- Assets/Sprites/RalseiSprites/RalseiCollection Data/RalseiCollection.prefab
+- Assets/Sprites/Projectiles/ProjectileCollection Data/ProjectileCollection.prefab
+- Assets/Sprites/Particles/RalseiHeartParticle.prefab
+- Assets/Sprites/Item/ItemAnimation.prefab
+- Assets/Sprites/Projectiles/ProjectileAnimation.prefab
+- Assets/Sprites/Particles/RalseiHealParticle.prefab
+- Assets/Sprites/ralseibosscard_001.png
+Dependencies: []
