@@ -1,2 +1,2 @@
-# BepInExExampleModItems
- A BepInEx version of Kyle's MtG example mod with ItemAPI.
+# Ralsei
+A commissioned Ralsei custom character, with custom art and mechanics!
