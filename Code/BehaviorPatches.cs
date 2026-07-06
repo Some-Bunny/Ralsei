@@ -31,8 +31,8 @@ namespace Ralsei
                 var c = Toolbox.isCakedUp();
                 if (c)
                 {
-                    
-                    aIActor.RalseifyEnemy(c);
+                   
+                    aIActor.RalseifyEnemy(c, false);
                 }
             }
             yield break;
@@ -145,19 +145,24 @@ namespace Ralsei
                 if (AIActorModifiers.RalseiCharmedEnemyController.allCharmedAIActors.Contains(host))
                 {
                     var c = Toolbox.isCakedUp();
-                    if (c)
-                    {
-                        __instance.aiActor.RalseifyEnemy(c);
-                        __instance.StartCoroutine(KillMirror(__instance.aiActor));
+                    if (c !=  null && __instance.aiActor != null)
+                    {                        
+                        GameManager.Instance.StartCoroutine(KillMirror(__instance.aiActor, c));
                     }
                 }
             }
-            public static IEnumerator KillMirror(AIActor aIActor)
+            public static IEnumerator KillMirror(AIActor aIActor, Cake c)
             {
-                yield return new WaitForSeconds(20);
-                if (aIActor)
+                yield return null;
+                aIActor.RalseifyEnemy(c, true);
+                
+                while (aIActor != null)
                 {
-                    aIActor.healthHaver.ApplyDamage(100000f, Vector2.zero, "Mirror Host Death", CoreDamageTypes.None, DamageCategory.Unstoppable, false, null, false);
+                    yield return new WaitForSeconds(1);
+                    if (aIActor != null && aIActor.gameObject.activeSelf)
+                        aIActor.healthHaver.ApplyDamage(aIActor.healthHaver.GetMaxHealth() * 0.05f, Vector2.zero, "Mirror Host Death", CoreDamageTypes.None, DamageCategory.Unstoppable, false, null, false);
+
+
                 }
                 yield break;
             }

@@ -10,25 +10,32 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 using Ralsei.Code;
 using Alexandria.ItemAPI;
+using Brave.BulletScript;
 
 namespace Ralsei
 {
     public static class AIActorModifiers
     {
 
-        public static void RalseifyEnemy(this AIActor CurrentEnemy, Cake cake)
+        public static void RalseifyEnemy(this AIActor CurrentEnemy, Cake cake, bool isClone)
         {
             var user = cake.LastOwner;
             CurrentEnemy.RemoveEffect(Cake.charmingRoundsEffect);
 
-            CurrentEnemy.sprite.color = Color.green;
+            CurrentEnemy.sprite.color = isClone ? Color.red : Color.green;
             CurrentEnemy.behaviorSpeculator.enabled = false;
             CurrentEnemy.IgnoreForRoomClear = true;
+
             CurrentEnemy.CanTargetEnemies = true;
             CurrentEnemy.CanTargetPlayers = false;
 
             CurrentEnemy.OverrideTarget = null;
+            CurrentEnemy.PlayerTarget = null;
 
+            if (CurrentEnemy.behaviorSpeculator)
+            {
+                CurrentEnemy.behaviorSpeculator.m_playerTarget = null;
+            }
 
             if (ScarfWeapon.RalseiSlash.targetVFX != null && ScarfWeapon.RalseiSlash.targetVFX.TargetInst == CurrentEnemy)
             {
@@ -116,10 +123,11 @@ namespace Ralsei
                     {
                         if (entry.Behavior is MirrorImageBehavior mirror_2)
                         {
-                            mirror_2.m_allImages.ForEach(self =>
+                            for (int I_ = mirror_2.m_allImages.Count - 1; I_ > -1; I_--)
                             {
-                                self.aiActor.healthHaver.ApplyDamage(100000000, Vector2.zero, "Fuck off");
-                            });
+                                if (mirror_2.m_allImages[I_] != null)
+                                    mirror_2.m_allImages[I_].aiActor.healthHaver.ApplyDamage(100000000, Vector2.zero, "Fuck off");
+                            }
                         }
                         if (entry.Behavior is BuffEnemiesBehavior beb_2)
                         {
@@ -127,6 +135,7 @@ namespace Ralsei
                         }
                         if (entry.Behavior is DisplaceBehavior displace_2)
                         {
+
                             if (displace_2.m_image)
                             {
                                 displace_2.m_image.healthHaver.ApplyDamage(100000000, Vector2.zero, "Fuck off");
@@ -141,10 +150,11 @@ namespace Ralsei
                 {
                     if (entry.Behavior is MirrorImageBehavior mirror_2)
                     {
-                        mirror_2.m_allImages.ForEach(self =>
+                        for (int I_ = mirror_2.m_allImages.Count - 1; I_ > -1; I_--)
                         {
-                            self.aiActor.healthHaver.ApplyDamage(100000000, Vector2.zero, "Fuck off");
-                        });
+                            if (mirror_2.m_allImages[I_] != null)
+                                mirror_2.m_allImages[I_].aiActor.healthHaver.ApplyDamage(100000000, Vector2.zero, "Fuck off");
+                        }
                     }
                     if (entry.Behavior is BuffEnemiesBehavior beb_2)
                     {
@@ -167,10 +177,26 @@ namespace Ralsei
 
 
 
-                CurrentEnemy.CompanionSettings = new ActorCompanionSettings() { WarpsToRandomPoint = false };
+            CurrentEnemy.CompanionSettings = new ActorCompanionSettings() { WarpsToRandomPoint = false };
             CurrentEnemy.behaviorSpeculator.MovementBehaviors.Add(comp);
             CurrentEnemy.behaviorSpeculator.enabled = true;
             CurrentEnemy.behaviorSpeculator.RefreshBehaviors();
+
+            CurrentEnemy.specRigidbody.OnPreRigidbodyCollision += (_, __, ___, ____) =>
+            {
+                var otherbODY = (___ as SpeculativeRigidbody);
+                if (otherbODY != null && otherbODY.projectile != null)
+                {
+                    if (otherbODY.projectile.Owner != null)
+                    {
+                        if (otherbODY.projectile.Owner is PlayerController)
+                        {
+                            PhysicsEngine.SkipCollision = true;
+                            (_ as SpeculativeRigidbody).DeregisterSpecificCollisionException(otherbODY);
+                        }
+                    }
+                }
+            };
 
             //DontDestroyOnLoad(CurrentEnemy.gameObject);
             //CurrentEnemy.transform.SetParent(null, true);
@@ -203,11 +229,13 @@ namespace Ralsei
 
 
             AIActorModifiers.CompanionisedEnemyBulletModifiers yeehaw = yup.gameObject.AddComponent<AIActorModifiers.CompanionisedEnemyBulletModifiers>();
+            yeehaw.aiActor = CurrentEnemy;
             yeehaw.jammedDamageMultiplier *= 2.5f;
-            yeehaw.baseBulletDamage = 3f;
+            yeehaw.baseBulletDamage = 2.5f;
             yeehaw.TintBullets = true;
             yeehaw.TintColor = new Color(0.333f, 1, 0.8f);
             yeehaw.BulletsAreUnBlankable = true;
+            yeehaw.enemyOwner = cake.LastOwner;
 
             var scarfInstance = UnityEngine.Object.Instantiate<GameObject>(ScarfWeapon.scarfRef.gameObject).AddComponent<CustomScarfDoer>();
             scarfInstance.AttachTarget = CurrentEnemy;
@@ -222,14 +250,14 @@ namespace Ralsei
             scarfInstance.SinSpeed = 9f;
             scarfInstance.AmplitudeMod = 0.135f;
             scarfInstance.WavelengthMod = 1.1f;
-            scarfInstance.ScarfMaterial.SetColor("_OverrideColor", new Color(0, 0.8f, 0.125f));
+            scarfInstance.ScarfMaterial.SetColor("_OverrideColor", isClone ? Color.red : new Color(0, 0.8f, 0.125f));
             scarfInstance.Initialize(CurrentEnemy);
             scarfInstance.AdditionalOffset = new Vector3(0, 0.0625f);
             float offset = ((float)CurrentEnemy.specRigidbody.HitboxPixelCollider.Height) / 32;
             var extantOverheadder = CurrentEnemy.SmartPlayEffectOnActor(Cake.EffectPrefab.gameObject, new Vector3(-0.625f, -offset - 0.25f), true, true, true, true).GetComponent<EnemyHealthBarRalsei>();
             extantOverheadder.InitEffect(CurrentEnemy);
 
-            CurrentEnemy.healthHaver.maximumHealth *= 5f;
+            CurrentEnemy.healthHaver.maximumHealth *= 3f;
             CurrentEnemy.healthHaver.CursedMaximum = CurrentEnemy.healthHaver.maximumHealth;
             CurrentEnemy.healthHaver.FullHeal();
 
@@ -558,7 +586,7 @@ namespace Ralsei
                             if (_ is Cake cake)
                             {
                                 ralseified = true;
-                                RalseifyEnemy(aIActor, cake);
+                                RalseifyEnemy(aIActor, cake, false);
                                 break;
                             }
                         }
@@ -920,23 +948,28 @@ namespace Ralsei
                     foreach (AIBulletBank.Entry bullet in bulletBank2.Bullets)
                     {
                         SpawnManager.PoolManager.Remove(bullet.BulletObject.transform);
-                        bullet.BulletObject.GetComponent<Projectile>().BulletScriptSettings.preventPooling = true;
+                        var c = bullet.BulletObject.GetComponent<Projectile>();
+                        c.BulletScriptSettings.preventPooling = true;
+                        c.BulletScriptSettings.overrideMotion = false;
                     }
                 }
 
                 if (base.aiActor.aiShooter != null)
                 {
                     AIShooter aiShooter = base.aiActor.aiShooter;
-                    aiShooter.PostProcessProjectile = (Action<Projectile>)Delegate.Combine(aiShooter.PostProcessProjectile, new Action<Projectile>(this.PostProcessSpawnedEnemyProjectiles));
-                    
+                    aiShooter.PostProcessProjectile += PostProcessSpawnedEnemyProjectiles;
+
                 }
 
                 if (base.aiActor.bulletBank != null)
                 {
                     AIBulletBank bulletBank = base.aiActor.bulletBank;
-                    bulletBank.OnProjectileCreated = (Action<Projectile>)Delegate.Combine(bulletBank.OnProjectileCreated, new Action<Projectile>(this.PostProcessSpawnedEnemyProjectiles));
+                    bulletBank.OnProjectileCreated += PostProcessSpawnedEnemyProjectiles;
+                    bulletBank.OnProjectileCreatedWithSource += PostProcessSpawnedEnemyProjectiles;
+                    bulletBank.OnBulletSpawned += PostProcessSpawnedEnemyProjectiles;
                 }
             }
+        
 
             public void Update()
             {
@@ -950,36 +983,46 @@ namespace Ralsei
                 }
             }
 
+            private void PostProcessSpawnedEnemyProjectiles(Bullet src, Projectile proj)
+            {
+                Debug.Log("Bullet");
+                PostProcessSpawnedEnemyProjectiles(proj);
+            }
+
+            private void PostProcessSpawnedEnemyProjectiles(string src, Projectile proj)
+            {
+                Debug.Log("string");
+                PostProcessSpawnedEnemyProjectiles(proj);
+            }
+
             private void PostProcessSpawnedEnemyProjectiles(Projectile proj)
             {
+                Debug.Log(":3");
                 if (TintBullets) { proj.AdjustPlayerProjectileTint(this.TintColor, 1); }
                 if (base.aiActor != null)
                 {
-                    if (base.aiActor.aiActor != null)
-                    {
-                        SpawnManager.PoolManager.Remove(proj.transform);
-                        proj.baseData.damage = baseBulletDamage;
-                        proj.ImmuneToBlanks = BulletsAreUnBlankable;
-                        proj.ImmuneToSustainedBlanks = BulletsAreUnBlankable;
+                    SpawnManager.PoolManager.Remove(proj.transform);
+                    proj.baseData.damage = baseBulletDamage;
+                    proj.ImmuneToBlanks = BulletsAreUnBlankable;
+                    proj.ImmuneToSustainedBlanks = BulletsAreUnBlankable;
 
-                        if (enemyOwner != null)
+                    if (enemyOwner != null)
+                    {
+                        //ETGModConsole.Log("Companionise: enemyOwner is not null");
+                        if (scaleDamage) proj.baseData.damage *= enemyOwner.stats.GetStatValue(PlayerStats.StatType.Damage);
+                        if (scaleSize)
                         {
-                            //ETGModConsole.Log("Companionise: enemyOwner is not null");
-                            if (scaleDamage) proj.baseData.damage *= enemyOwner.stats.GetStatValue(PlayerStats.StatType.Damage);
-                            if (scaleSize)
-                            {
-                                proj.RuntimeUpdateScale(enemyOwner.stats.GetStatValue(PlayerStats.StatType.PlayerBulletScale));
-                            }
-                            if (scaleSpeed)
-                            {
-                                proj.baseData.speed *= enemyOwner.stats.GetStatValue(PlayerStats.StatType.ProjectileSpeed);
-                                proj.UpdateSpeed();
-                            }
-                            //ETGModConsole.Log("Damage: " + proj.baseData.damage);
-                            if (doPostProcess) enemyOwner.DoPostProcessProjectile(proj);
+                            proj.RuntimeUpdateScale(enemyOwner.stats.GetStatValue(PlayerStats.StatType.PlayerBulletScale));
                         }
-                        if (base.aiActor.IsBlackPhantom) { proj.baseData.damage = baseBulletDamage * jammedDamageMultiplier; }
+                        if (scaleSpeed)
+                        {
+                            proj.baseData.speed *= enemyOwner.stats.GetStatValue(PlayerStats.StatType.ProjectileSpeed);
+                            proj.UpdateSpeed();
+                        }
+                        //ETGModConsole.Log("Damage: " + proj.baseData.damage);
+                        if (doPostProcess) enemyOwner.DoPostProcessProjectile(proj);
                     }
+                    if (base.aiActor.IsBlackPhantom) { proj.baseData.damage = baseBulletDamage * jammedDamageMultiplier; }
                 }
                 else { ETGModConsole.Log("Shooter is NULL"); }
             }

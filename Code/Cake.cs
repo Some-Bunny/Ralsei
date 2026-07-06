@@ -75,7 +75,7 @@ namespace Ralsei
             activeitem.quality = PickupObject.ItemQuality.SPECIAL;
             activeitem.CanBeDropped = false;
             ItemBuilder.AddPassiveStatModifier(activeitem, PlayerStats.StatType.AdditionalItemCapacity, 1, StatModifier.ModifyMethod.ADDITIVE);
-
+            activeitem.PreventStartingOwnerFromDropping = true;
             //new Hook(typeof(GameUIItemController).GetMethod("UpdateItem", BindingFlags.Instance | BindingFlags.Public), typeof(Cake).GetMethod("UpdateCustomLabel"));
 
             var healtbhar = PrefabBuilder.BuildObject("HealthbarRalsei");
@@ -151,7 +151,7 @@ namespace Ralsei
         public RalseiTargetVFX targetVFXInst = null;
 
 
-        public float StoredHearts = 10;
+        public int StoredHearts = 7;
         public float StoredArmor = 0;
         public List<AIActorModifiers.RalseiCharmedEnemyController> AllCharmedEnemies = new List<AIActorModifiers.RalseiCharmedEnemyController>();
 
@@ -165,13 +165,19 @@ namespace Ralsei
 
         public override void Pickup(PlayerController player)
         {
-            player.OnNewFloorLoaded += ONFL;
+            //player.OnNewFloorLoaded += ONFL;
             player.OnRoomClearEvent += Player_OnRoomClearEvent;
             base.Pickup(player);
         }
+        private bool _Check = false;
         public void ONFL(PlayerController player)
         {
-            StoredHearts += 1.5f;
+            _Check = !_Check;
+            if (_Check)
+            {
+                StoredHearts += 3;
+                Debug.Log($"AAAAAA {StoredHearts}");
+            }
             AllCharmedEnemies.RemoveAll(self => self == null);
             foreach (var entry in AllCharmedEnemies)
             {
@@ -346,7 +352,7 @@ namespace Ralsei
                 }
                 GameObject blankObj = GameObject.Instantiate((GameObject)ResourceCache.Acquire("Global VFX/BlankVFX_Ghost"), CurrentEnemy.sprite.WorldCenter, Quaternion.identity);
                 Destroy(blankObj, 2f);
-                AIActorModifiers.RalseifyEnemy(CurrentEnemy, this);
+                AIActorModifiers.RalseifyEnemy(CurrentEnemy, this, false);
                 CurrentEnemy = null;
                 return;
             }
@@ -400,9 +406,9 @@ namespace Ralsei
         }
 
 
-        public float DetermineHealing(HealthPickup healthPickup, ref bool SynergyActivated)
+        public int DetermineHealing(HealthPickup healthPickup, ref bool SynergyActivated)
         {
-            float amountToHeal = 0;
+            int amountToHeal = 0;
             float MultAmount = 6;
             float MultAmountArmor = 12;
             if (this.LastOwner.PlayerHasActiveSynergy("A Hearty Meal") && UnityEngine.Random.value >= 0.5f)
@@ -410,9 +416,9 @@ namespace Ralsei
                 SynergyActivated = true;
                 MultAmount *= 2;
             }
-            amountToHeal += healthPickup.healAmount * MultAmount;
-            amountToHeal += healthPickup.armorAmount * MultAmountArmor;
-            return amountToHeal;
+            amountToHeal += (int)(healthPickup.healAmount * MultAmount);
+            amountToHeal += (int)(healthPickup.armorAmount * MultAmountArmor);
+            return Mathf.RoundToInt(amountToHeal);
         }
 
 
@@ -630,22 +636,28 @@ namespace Ralsei
         {
             base.MidGameSerialize(data);
             data.Add(StoredHearts);
+
+            AllCharmedEnemies.RemoveAll(x => x == null);
+
             data.Add(AllCharmedEnemies.Count);
             foreach (var entry in AllCharmedEnemies)
             {
-                data.Add(entry.aiActor.EnemyGuid);
-                data.Add(entry.aiActor.healthHaver.currentHealth);
-                data.Add(entry.aiActor.healthHaver.maximumHealth);
+                if (entry.aiActor != null)
+                {
+                    data.Add(entry.aiActor.EnemyGuid);
+                    data.Add(entry.aiActor.healthHaver.currentHealth);
+                    data.Add(entry.aiActor.healthHaver.maximumHealth);
+                }
             }
         }
 
         public override void MidGameDeserialize(List<object> data)
         {
             base.MidGameDeserialize(data);
-            int i = 0;
-            StoredHearts = (float)data[i++];
+            int i = 2;
+            StoredHearts = (int)data[0];
             StoredHearts += 3;
-            int AmountOfEnemies = (int)data[i++];
+            int AmountOfEnemies = (int)data[1];
             for (int i_ = 0; i_ < AmountOfEnemies; i_++) 
             {
                 string EnemyGuid = (string)data[i++];
@@ -666,10 +678,11 @@ namespace Ralsei
             {
                 yield return null;
             }
+            yield return new WaitForSeconds(0.25f);
             var enemy = AIActor.Spawn(EnemyDatabase.GetOrLoadByGuid(GUID), this.LastOwner.transform.position, this.LastOwner.CurrentRoom, false, AIActor.AwakenAnimationType.Default, true);
             yield return null;
             enemy.reinforceType = AIActor.ReinforceType.Instant;
-            enemy.RalseifyEnemy(this);
+            enemy.RalseifyEnemy(this, false);
             enemy.healthHaver.SetHealthMaximum(Max);
             enemy.healthHaver.currentHealth = HP;
         }

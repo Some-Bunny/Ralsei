@@ -28,6 +28,7 @@ namespace MikuMikuMod
             item.quality = PickupObject.ItemQuality.SPECIAL;
             item.CanBeDropped = false;
             scarfRef = (PickupObjectDatabase.GetById(436) as BlinkPassiveItem).ScarfPrefab;
+            item.PreventStartingOwnerFromDropping = true;
         }
 
         private CustomScarfDoer scarfInstance;
@@ -89,7 +90,7 @@ namespace MikuMikuMod
             if (UnityEngine.Random.value < HealthDropChance)
             {
                 
-                HealthDropChance = 0.0333f;
+                HealthDropChance = 0.0166f;
                 IntVector2 bestRewardLocation = obj.CurrentRoom.GetBestRewardLocation(new IntVector2(1, 1), RoomHandler.RewardLocationStyle.CameraCenter, true);
                 var debris = LootEngine.SpawnItem(PickupObjectDatabase.GetById(73).gameObject, bestRewardLocation.ToVector3(), Vector2.up, 0, true, false, false);
                 AkSoundEngine.PostEvent("Play_OBJ_med_kit_01", obj.gameObject);

@@ -22,7 +22,7 @@ namespace Ralsei
     {
         public const string GUID = "somebunny.etg.ralsei";
         public const string NAME = "== Ralsei! ==";
-        public const string VERSION = "1.0.3";
+        public const string VERSION = "1.0.4";
         public const string TEXT_COLOR = "#6aff13";
 
         public static AssetBundle assetBundle;

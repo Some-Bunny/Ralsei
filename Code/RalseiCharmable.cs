@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using System.Collections;
+using Alexandria.ItemAPI;
 
 namespace Ralsei.Code
 {
@@ -103,6 +104,10 @@ namespace Ralsei.Code
                 if (AdditionalHealthCostModifiers.ContainsKey(enemy.EnemyGuid))
                 {
                     Mod = AdditionalHealthCostModifiers[enemy.EnemyGuid];
+                }
+                if (enemy.HasTag("Ralsei:Uncharmable"))
+                {
+                    return;
                 }
             }
 
